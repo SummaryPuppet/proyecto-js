@@ -1,15 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { useVerBoletos } from "../hooks/useVerBoletos";
-import type { KeyboardEvent } from "react";
-
-const handleTabKeyDown = (e: KeyboardEvent<HTMLLIElement>, tab: string): void => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    // This would need access to setActiveTab, but since it's in the component,
-    // we'll handle it in the component itself
-  }
-};
 
 const getEmptyStateMessage = (activeTab: string): string => {
   if (activeTab === "compras") return "No tienes compras realizadas";
@@ -132,38 +123,35 @@ export default function VerBoletos() {
           </div>
         </div>
 
-        <ul className="row list-unstyled text-center bg-light m-0 p-0" role="tablist">
-          <li
+        <div className="row list-unstyled text-center bg-light m-0 p-0" role="tablist">
+          <button
+            type="button"
             className={`col-4 btn py-3 rounded-0 border-0 ${activeTab === "compras" ? "btn-dark" : "btn-outline-secondary"}`}
             role="tab"
             aria-selected={activeTab === "compras"}
-            tabIndex={0}
             onClick={() => setActiveTab("compras")}
-            onKeyDown={(e) => handleTabKeyDown(e, "compras")}
           >
             MIS COMPRAS
-          </li>
-          <li
+          </button>
+          <button
+            type="button"
             className={`col-4 btn py-3 rounded-0 border-0 ${activeTab === "etickets" ? "btn-dark" : "btn-outline-secondary"}`}
             role="tab"
             aria-selected={activeTab === "etickets"}
-            tabIndex={0}
             onClick={() => setActiveTab("etickets")}
-            onKeyDown={(e) => handleTabKeyDown(e, "etickets")}
           >
             ETICKETS
-          </li>
-          <li
+          </button>
+          <button
+            type="button"
             className={`col-4 btn py-3 rounded-0 border-0 ${activeTab === "devoluciones" ? "btn-dark" : "btn-outline-secondary"}`}
             role="tab"
             aria-selected={activeTab === "devoluciones"}
-            tabIndex={0}
             onClick={() => setActiveTab("devoluciones")}
-            onKeyDown={(e) => handleTabKeyDown(e, "devoluciones")}
           >
             MIS DEVOLUCIONES
-          </li>
-        </ul>
+          </button>
+        </div>
 
         {loading ? (
           <div className="container text-center my-5 py-5">

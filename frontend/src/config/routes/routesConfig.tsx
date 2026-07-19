@@ -4,6 +4,7 @@ import LayoutHome from "../../modules/home/layouts/LayoutHome";
 import LayoutAuth from "../../modules/auth/layouts/LayoutAuth";
 import LayoutCompras from "../../modules/compras/layouts/LayoutCompras";
 import LayoutDashboard from "../../modules/dashboard/layouts/LayoutDashboard";
+import LayoutLegal from "../../modules/legal/layouts/LayoutLegal";
 import Inicio from "../../modules/home/pages/Inicio";
 import Informacion from "../../modules/home/pages/Informacion";
 import EventDetail from "../../modules/home/pages/EventDetail";
@@ -14,6 +15,7 @@ import Compras from "../../modules/compras/pages/Compras";
 import VerBoletos from "../../modules/compras/pages/VerBoletos";
 import BoletoDetail from "../../modules/compras/pages/BoletoDetail";
 import Dashboard from "../../modules/dashboard/pages/Dashboard";
+import LegalPage from "../../modules/legal/pages/LegalPage";
 import PaginaNoEncontrada from "../../modules/home/pages/PaginaNoEncontrada";
 
 export const routesConfig = [
@@ -81,6 +83,15 @@ export const routesConfig = [
           {
             path: "dashboard/gestionar",
             element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        element: <LayoutLegal />,
+        children: [
+          {
+            path: "legal/:slug",
+            element: <LegalPage />,
           },
         ],
       },

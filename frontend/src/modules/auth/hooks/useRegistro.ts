@@ -88,7 +88,7 @@ export const useRegistro = () => {
 
   const validateForm = (): boolean => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
     if (!formData.nombre.trim()) newErrors.nombre = t.errorName;
     if (!formData.apellido.trim()) newErrors.apellido = t.errorLastname;

@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
 import { useInicio } from "../hooks/useInicio";
+import { formatFecha } from "../../../shared/utils/formatFecha";
 
 export default function Inicio() {
   const { eventos, heroSlides } = useInicio();
-
-  const formatFecha = (fecha: string, hora: string) => {
-    const date = new Date(`${fecha}T${hora}`);
-    return date.toLocaleDateString("es-PE", {
-      weekday: "short",
-      day: "numeric",
-      month: "short",
-    });
-  };
 
   return (
     <div className="d-flex flex-column min-vh-100 bg-light index-page">
@@ -70,7 +62,7 @@ export default function Inicio() {
                           </h2>
                           <p className="mb-1">{slide.descripcion}</p>
                           <p className="small mb-0 opacity-75">
-                            {formatFecha(slide.fecha, slide.hora)} &middot; S/ {slide.precio}
+                            {formatFecha(slide.fecha, slide.hora, "corto")} &middot; S/ {slide.precio}
                           </p>
                         </div>
                       </div>
@@ -143,7 +135,7 @@ export default function Inicio() {
                     {evento.titulo}
                   </p>
                   <p className="card-text text-secondary small mb-1">
-                    {formatFecha(evento.fecha, evento.hora)} &middot; {evento.hora} hrs
+                    {formatFecha(evento.fecha, evento.hora, "corto")} &middot; {evento.hora} hrs
                   </p>
                   <p className="card-text text-secondary small mb-2">
                     {evento.lugar} &middot; {evento.ciudad}

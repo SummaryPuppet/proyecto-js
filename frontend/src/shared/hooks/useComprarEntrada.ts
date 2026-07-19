@@ -1,13 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-interface TicketPurchaseData {
-  evento: string;
-  fecha: string;
-  lugar: string;
-  zona: string;
-  tipo: string;
-  precio: number;
-}
+import type { TicketPurchaseData } from "../interfaces/SharedTypes";
 
 export const useComprarEntrada = () => {
   const navigate = useNavigate();

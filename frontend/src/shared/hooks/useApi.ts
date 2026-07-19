@@ -1,10 +1,5 @@
 import { useState, useCallback } from "react";
-
-interface ApiState<T> {
-  data: T | null;
-  loading: boolean;
-  error: string | null;
-}
+import type { ApiState } from "../interfaces/SharedTypes";
 
 export function useApi<T>() {
   const [state, setState] = useState<ApiState<T>>({

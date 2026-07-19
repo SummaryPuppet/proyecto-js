@@ -61,7 +61,7 @@ export const useLogin = () => {
 
   const validateForm = (): boolean => {
     const newErrors: string[] = [];
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
     if (email.trim() === "") {
       newErrors.push(t.errorEmail);

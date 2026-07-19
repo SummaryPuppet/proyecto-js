@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { eventosData } from "../data/eventosData";
 import { useAuth } from "../../../shared/hooks/useAuth";
+import { formatFecha } from "../../../shared/utils/formatFecha";
 import type { EventoDetalle } from "../interfaces/EventDetailTypes";
 
 const zonas = [
@@ -43,16 +44,6 @@ export const useEventDetail = () => {
         tipo,
         precio: evento.precio,
       },
-    });
-  };
-
-  const formatFecha = (fecha: string, hora: string) => {
-    const date = new Date(`${fecha}T${hora}`);
-    return date.toLocaleDateString("es-PE", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
     });
   };
 

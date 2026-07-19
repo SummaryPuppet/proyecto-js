@@ -46,20 +46,7 @@ export default function Navbar() {
               </NavLink>
             </li>
 
-            {!isAuthenticated ? (
-              <>
-                <li className="nav-item">
-                  <NavLink className={navLinkClass} to="/login">
-                    Iniciar Sesion
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className={navLinkClass} to="/registro">
-                    Registrarse
-                  </NavLink>
-                </li>
-              </>
-            ) : (
+            {isAuthenticated ? (
               <>
                 {userRole === "CLIENTE" && (
                   <li className="nav-item">
@@ -98,6 +85,19 @@ export default function Navbar() {
                   >
                     Cerrar Sesión
                   </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <NavLink className={navLinkClass} to="/login">
+                    Iniciar Sesion
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className={navLinkClass} to="/registro">
+                    Registrarse
+                  </NavLink>
                 </li>
               </>
             )}

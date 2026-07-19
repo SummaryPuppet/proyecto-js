@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import { useAuth } from "../../../shared/hooks/useAuth";
 import { obtenerCompraPorId } from "../../../shared/utils/comprasStorage";
+import { formatFecha } from "../../../shared/utils/formatFecha";
 import type { BoletoDetalle } from "../interfaces/BoletoDetailTypes";
 
 const generateCodigoBoleto = (id: number): string => {
@@ -30,16 +31,6 @@ export const useBoletoDetail = () => {
   }, [id]);
 
   const handleVolver = () => navigate("/ver-boletos");
-
-  const formatFecha = (fecha: string) => {
-    const date = new Date(fecha);
-    return date.toLocaleDateString("es-PE", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
 
   return {
     boleto,
